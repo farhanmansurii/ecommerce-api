@@ -7,11 +7,7 @@ const authRoute = require('./routes/auth');
 const productRoute = require('./routes/product');
 dotenv.config();
 app.options('*', cors())
-app.use(function (req, res, next) {
-  res.setHeader("Access-Control-Allow-Origin","*")
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept"); next();
-});
+app.use(cors());
 app.use(express.json());
 app.use('/api/user', userrouter);
 app.use('/api/auth', authRoute);
