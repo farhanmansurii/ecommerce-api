@@ -9,7 +9,7 @@ const productRoute = require("./routes/product");
 dotenv.config();
 app.use(
   cors({
-    origin: ["http://127.0.0.1:5173/", "https://productapi.vercel.app/"],
+    origin: "*",
   })
 );
 app.use(express.json());
