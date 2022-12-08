@@ -6,10 +6,11 @@ const userrouter = require('./routes/user');
 const authRoute = require('./routes/auth');
 const productRoute = require('./routes/product');
 dotenv.config();
-app.use(function (request, response, next) {
-  response.header('Access-Control-Allow-Origin', '*');
-  response.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
-  next();
+app.options('*', cors())
+app.use(function (req, res, next) {
+  res.setHeader("Access-Control-Allow-Origin","*")
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept"); next();
 });
 app.use(express.json());
 app.use('/api/user', userrouter);
